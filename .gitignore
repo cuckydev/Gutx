@@ -1,0 +1,9 @@
+# Exclude build directory
+build/
+
+# Exclude potential binaries
+bin/Gutx
+bin/Gutx.exe
+
+# Exclude work files
+work/
