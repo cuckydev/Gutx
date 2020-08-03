@@ -1,0 +1,18 @@
+int ActBullet0(int a1);
+int ActBullet1(int a1);
+int ActBullet2(int a1);
+int ActBullet3(int a1);
+Bullet *ActBullet4(Bullet *a1);
+signed int ActBullet5(int a1);
+int ActBullet6(int a1);
+signed int ActBullet7(int a1);
+int ActBullet8(int a1);
+int *GetBulletTbl();
+void *ResetBullet();
+void *LoadPximgBullet();
+int ActBullet();
+int HitBulletMap();
+int MapCollideBulletProc(int a1);
+int PutBullet(int a1);
+int CountBullet(int a1);
+signed int CreateBullet(int type, int x, int y, int a4, int a5, int max); 

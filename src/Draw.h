@@ -1,0 +1,15 @@
+_UNKNOWN surfaceTbl2_; 
+int surfaceTbl_[]; 
+int dword_44CE3C[]; 
+int dword_44CE40[]; 
+LPDIRECTDRAW lpDD; 
+int SurfaceA; 
+int SurfaceB; 
+int DDrawClipper; 
+HWND DDHWnd; 
+int RenderOffsetX; 
+int RenderOffsetY; 
+int MainSurfaceWidth; 
+int MainSurfaceHeight; 
+int unusedDDrawmath; 
+int PximgDecodeEnabled; 

@@ -1,5 +1,10 @@
-# Exclude build directory
+# Exclude build directories
 build/
+bin/
+CMakeFiles/
+CMakeCache.txt
+Makefile
+cmake_install.cmake
 
 # Exclude potential binaries
 bin/Gutx
@@ -7,3 +12,4 @@ bin/Gutx.exe
 
 # Exclude work files
 work/
+.vscode/
