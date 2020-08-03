@@ -1,26 +1,17 @@
 #include <libloaderapi.h>
-#include <string.h>
-#include <stddef.h>
+#include <string>
 
 #include "SDL_filesystem.h"
+
+const char *module_name = "Gutx";
 
 DWORD WINAPI GetModuleFileNameA(HMODULE hModule, LPSTR lpFilename, DWORD nSize)
 {
 	char *base_path = SDL_GetBasePath();
-	if (base_path != nullptr)
-	{
-		memset(lpFilename, 0, nSize);
-		strncpy(lpFilename, base_path, nSize);
-		SDL_free(base_path);
-		size_t len = strlen(lpFilename);
-		return len > nSize ? nSize : len;
-	}
-	else
-	{
-		if (nSize >= 3)
-			strcpy(lpFilename, "./");
-		else
-			*lpFilename = 0;
-		return strlen(lpFilename);
-	}
+	std::string res = (base_path != nullptr) ? std::string(base_path) + module_name : "./";
+	size_t i;
+	for (i = 0; i < res.length() && i < (nSize - 1); i++)
+		*lpFilename++ = res[i];
+	*lpFilename = 0;
+	return i;
 }

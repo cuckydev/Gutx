@@ -5,5 +5,8 @@ build/
 bin/Gutx
 bin/Gutx.exe
 
+# Exclude VS Code data
+.vscode/
+
 # Exclude work files
 work/

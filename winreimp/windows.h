@@ -5,3 +5,4 @@
 #include <handleapi.h>
 #include <commctrl.h>
 #include <libloaderapi.h>
+#include <shlwapi.h>

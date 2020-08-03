@@ -42,6 +42,8 @@ else()
 		"winreimp/commctrl.h"
 		"winreimp/libloaderapi.cpp"
 		"winreimp/libloaderapi.h"
+		"winreimp/shlwapi.cpp"
+		"winreimp/shlwapi.h"
 	)
 	target_include_directories(Gutx PRIVATE "winreimp")
 endif()

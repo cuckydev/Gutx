@@ -1,5 +1,7 @@
 #include <windows.h>
 
+#include <string.h>
+
 #include "Input.h"
 #include "Mutex.h"
 
@@ -47,6 +49,14 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		
 		//Handle paths
 		GetModuleFileName(nullptr, gModulePath, MAX_PATH);
+		PathRemoveFileSpec(gModulePath);
+#ifdef TARGET_WIN
+		sprintf(gTempPath, "%s\\temp_guxt", gModulePath);
+		sprintf(gDataPath, "%s\\data", gModulePath);
+#else
+		sprintf(gTempPath, "%s/temp_guxt", gModulePath);
+		sprintf(gDataPath, "%s/data", gModulePath);
+#endif
 		return 1;
 	}
 	else
