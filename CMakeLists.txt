@@ -17,8 +17,8 @@ add_executable(Gutx WIN32
 	"src/Input.cpp"
 	"src/Input.h"
 	"src/Main.cpp"
-	"src/Mutex.cpp"
-	"src/Mutex.h"
+	"src/Window.cpp"
+	"src/Window.h"
 )
 
 if(TARGET_WIN)
@@ -44,6 +44,10 @@ else()
 		"winreimp/libloaderapi.h"
 		"winreimp/shlwapi.cpp"
 		"winreimp/shlwapi.h"
+		"winreimp/fileapi.cpp"
+		"winreimp/fileapi.h"
+		"winreimp/wingdi.cpp"
+		"winreimp/wingdi.h"
 	)
 	target_include_directories(Gutx PRIVATE "winreimp")
 endif()
@@ -57,13 +61,19 @@ set_target_properties(Gutx PROPERTIES
 # Targets #
 ###########
 if(TARGET_WIN)
+	# Target windows
+	target_compile_definitions(Gutx PRIVATE TARGET_WIN)
 else()
 	# Link SDL2
 	find_package(SDL2)
 	target_link_libraries(Gutx PRIVATE SDL2::SDL2)
 	
-	# Reimplement WinMain
+	# Set flags
 	target_compile_definitions(Gutx PRIVATE REIMP_WINMAIN)
+	target_compile_definitions(Gutx PRIVATE FORWARD_SLASH)
+	target_compile_definitions(Gutx PRIVATE _WIN64)
+	target_compile_definitions(Gutx PRIVATE SAFE_READ)
+	target_sources(Gutx PRIVATE "src/SafeRead.cpp" "src/SafeRead.h")
 endif()
 
 ##########

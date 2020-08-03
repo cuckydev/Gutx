@@ -3,6 +3,25 @@
 
 #include "SDL_video.h"
 
+//Cursor IDs
+#define IDC_ARROW           32512
+#define IDC_IBEAM           32513
+#define IDC_WAIT            32514
+#define IDC_CROSS           32515
+#define IDC_UPARROW         32516
+#define IDC_SIZE            32640
+#define IDC_ICON            32641
+#define IDC_SIZENWSE        32642
+#define IDC_SIZENESW        32643
+#define IDC_SIZEWE          32644
+#define IDC_SIZENS          32645
+#define IDC_SIZEALL         32646
+#define IDC_NO              32648
+#define IDC_HAND            32649
+#define IDC_APPSTARTING     32650
+#define IDC_HELP            32651
+
+//Window class
 typedef class _HWND : public _HANDLE
 {
 	private:
@@ -15,21 +34,41 @@ typedef class _HWND : public _HANDLE
 		SDL_Window *GetSDLWindow() { return window; }
 } *HWND;
 
-typedef HANDLE HMENU;
-typedef HANDLE HINSTANCE;
-typedef HINSTANCE HMODULE;
+//Window process
+typedef LRESULT (CALLBACK* WNDPROC)(HWND, UINT, WPARAM, LPARAM);
 
-/*
-typedef struct tagMSG {
-	HWND hwnd;
-	UINT message;
-	WPARAM wParam;
-	LPARAM lParam;
-	DWORD time;
-	POINT pt;
-	DWORD lPrivate;
-} MSG, *PMSG, *NPMSG, *LPMSG;
-*/
+//Class styles
+#define CS_VREDRAW          0x0001
+#define CS_HREDRAW          0x0002
+#define CS_DBLCLKS          0x0008
+#define CS_OWNDC            0x0020
+#define CS_CLASSDC          0x0040
+#define CS_PARENTDC         0x0080
+#define CS_NOCLOSE          0x0200
+#define CS_SAVEBITS         0x0800
+#define CS_BYTEALIGNCLIENT  0x1000
+#define CS_BYTEALIGNWINDOW  0x2000
+#define CS_GLOBALCLASS      0x4000
+
+#define CS_IME              0x00010000
+#define CS_DROPSHADOW       0x00020000
+
+//Window class structure
+typedef struct tagWNDCLASSEXA {
+    UINT        cbSize;
+    UINT        style;
+    WNDPROC     lpfnWndProc;
+    int         cbClsExtra;
+    int         cbWndExtra;
+    HINSTANCE   hInstance;
+    HICON       hIcon;
+    HCURSOR     hCursor;
+    HBRUSH      hbrBackground;
+    LPCSTR      lpszMenuName;
+    LPCSTR      lpszClassName;
+    HICON       hIconSm;
+} WNDCLASSEXA, *PWNDCLASSEXA, *NPWNDCLASSEXA, *LPWNDCLASSEXA;
+#define WNDCLASSEX WINAPI_NAME(WNDCLASSEX)
 
 //Message box API
 #define MB_OK 0x00000000L
@@ -64,6 +103,23 @@ HWND WINAPI SetCapture(
 );
 
 BOOL WINAPI ReleaseCapture();
+
+//Show window commands
+#define SW_HIDE             0
+#define SW_SHOWNORMAL       1
+#define SW_NORMAL           1
+#define SW_SHOWMINIMIZED    2
+#define SW_SHOWMAXIMIZED    3
+#define SW_MAXIMIZE         3
+#define SW_SHOWNOACTIVATE   4
+#define SW_SHOW             5
+#define SW_MINIMIZE         6
+#define SW_SHOWMINNOACTIVE  7
+#define SW_SHOWNA           8
+#define SW_RESTORE          9
+#define SW_SHOWDEFAULT      10
+#define SW_FORCEMINIMIZE    11
+#define SW_MAX              11
 
 //Window messages
 #define WM_NULL                         0x0000

@@ -1,4 +1,5 @@
 #pragma once
+#include <stdint.h>
 
 //Function types
 #define CALLBACK	//__stdcall
@@ -54,6 +55,22 @@ typedef short SHORT, *PSHORT;
 #else
 	typedef int LONG, *PLONG;
 #endif
+
+#ifdef _WIN64
+	typedef uint64_t UINT_PTR;
+#else
+	typedef unsigned int UINT_PTR;
+#endif
+
+#ifdef _WIN64
+ typedef int64_t LONG_PTR; 
+#else
+ typedef long LONG_PTR;
+#endif
+
+typedef UINT_PTR WPARAM;
+typedef LONG_PTR LPARAM;
+typedef LONG_PTR LRESULT;
 
 //String types
 typedef CHAR *PCH, *LPCH, *PNZCH;
@@ -121,3 +138,12 @@ typedef class _HANDLE
 #define HIWORD(l)           ((WORD)((DWORD_PTR)(l) >> 16))
 #define LOBYTE(w)           ((BYTE)((DWORD_PTR)(w) & 0xff))
 #define HIBYTE(w)           ((BYTE)((DWORD_PTR)(w) >> 8))
+
+//More windows types
+typedef HANDLE HMENU;
+typedef HANDLE HINSTANCE;
+typedef HINSTANCE HMODULE;
+typedef HANDLE HBITMAP;
+typedef HANDLE HBRUSH;
+typedef HANDLE HICON;
+typedef HICON HCURSOR;

@@ -1,8 +1,11 @@
 #pragma once
 #include <windef.h>
-#include <synchapi.h>
+#include <winbase.h>
 #include <winuser.h>
+#include <wingdi.h>
+#include <synchapi.h>
 #include <handleapi.h>
 #include <commctrl.h>
 #include <libloaderapi.h>
 #include <shlwapi.h>
+#include <fileapi.h>

@@ -1,11 +1,6 @@
 #pragma once
 #include <windef.h>
-
-typedef struct _SECURITY_ATTRIBUTES {
-	DWORD  nLength;
-	LPVOID lpSecurityDescriptor;
-	BOOL   bInheritHandle;
-} SECURITY_ATTRIBUTES, *PSECURITY_ATTRIBUTES, *LPSECURITY_ATTRIBUTES;
+#include <winbase.h>
 
 #define MUTEX_MODIFY_STATE	0x00000001L
 #define DELETE				0x00010000L

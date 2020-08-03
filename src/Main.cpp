@@ -3,7 +3,7 @@
 #include <string.h>
 
 #include "Input.h"
-#include "Mutex.h"
+#include "Window.h"
 
 LPCSTR lpName = "directxsample";
 LPCSTR mutexName = "map_directxsample";
@@ -30,6 +30,7 @@ BOOL message()
 }
 */
 
+//Entry points
 int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLine, int nShowCmd)
 {
 	MUTEX_INFO mutex;
@@ -50,13 +51,17 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		//Handle paths
 		GetModuleFileName(nullptr, gModulePath, MAX_PATH);
 		PathRemoveFileSpec(gModulePath);
-#ifdef TARGET_WIN
+#ifndef FORWARD_SLASH
 		sprintf(gTempPath, "%s\\temp_guxt", gModulePath);
 		sprintf(gDataPath, "%s\\data", gModulePath);
 #else
 		sprintf(gTempPath, "%s/temp_guxt", gModulePath);
 		sprintf(gDataPath, "%s/data", gModulePath);
 #endif
+		CreateDirectory(gTempPath, 0);
+		
+		SetWindowPosPath(gTempPath);
+		SetUnusedPtrTempGuxt(gTempPath);
 		return 1;
 	}
 	else
@@ -89,3 +94,20 @@ int main(int argc, char *argv[])
 #endif
 }
 #endif
+
+//Window managing
+BOOL SetWindowAttr(HINSTANCE hInstance, LPCSTR name, WNDPROC proc)
+{
+	WNDCLASSEX wndClass;
+	memset(&wndClass, 0, sizeof(WNDCLASSEX));
+
+	wndClass.cbSize = sizeof(WNDCLASSEX);
+	wndClass.lpszClassName = name;
+	wndClass.style = CS_VREDRAW | CS_HREDRAW;
+	wndClass.lpfnWndProc = proc;
+	wndClass.hInstance = ghInstance;
+	wndClass.hbrBackground = GetStockObject(BLACK_BRUSH);
+	wndClass.hIcon = LoadIconA(ghInstance, "0");
+	wndClass.hCursor = LoadCursorA(nullptr, IDC_ARROW);
+	return RegisterClassEx(&wndClass) != 0;
+}
