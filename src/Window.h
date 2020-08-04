@@ -9,8 +9,8 @@ struct MUTEX_INFO
 	HANDLE file_map_view;
 };
 
-BOOL SetWindowPosRect(HWND hWnd, LPCSTR a2, BOOL a3);
 void SetWindowPosPath(LPCSTR tempPath);
+BOOL SetWindowPosRect(HWND hWnd, LPCSTR a2, BOOL a3);
 void InitMutex(MUTEX_INFO *mutex);
 void CloseMutex(MUTEX_INFO *mutex);
 BOOL StartMutex(MUTEX_INFO *mutex, LPCSTR lpName, LPCSTR mutexName);
