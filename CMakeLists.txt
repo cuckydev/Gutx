@@ -14,13 +14,23 @@ project(Gutx LANGUAGES CXX)
 
 add_executable(Gutx WIN32
 	# Program
+	"src/File.cpp"
+	"src/File.h"
 	"src/Input.cpp"
 	"src/Input.h"
 	"src/Main.cpp"
+	"src/VarLen.cpp"
+	"src/VarLen.h"
 	"src/Window.cpp"
 	"src/Window.h"
+	"src/ptn/pxtnMem.cpp"
+	"src/ptn/pxtnMem.h"
 	"src/ptn/pxtnPulse_Frequency.cpp"
 	"src/ptn/pxtnPulse_Frequency.h"
+	"src/ptn/pxtnPulse_Noise.cpp"
+	"src/ptn/pxtnPulse_Noise.h"
+	"src/ptn/pxtnPulse_NoiseBuilder.cpp"
+	"src/ptn/pxtnPulse_NoiseBuilder.h"
 	"src/ptn/pxtnPulse_Oscillator.cpp"
 	"src/ptn/pxtnPulse_Oscillator.h"
 )

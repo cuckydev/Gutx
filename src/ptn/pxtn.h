@@ -19,10 +19,12 @@
 #include <stdio.h>
 #include <math.h>
 
+#include <windows.h>
+
 typedef struct
 {
-    int32_t x;
-    int32_t y;
+    DWORD x;
+    DWORD y;
 }
 pxtnPOINT;
 
