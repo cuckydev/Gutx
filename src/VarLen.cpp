@@ -1,6 +1,7 @@
-#include "VarLen.h"
-#include "ptn/pxtn.h"
+
 #include "File.h"
+#include "VarLen.h"
+#include <cstdint>
 
 //pxtnDescriptor_v_chk (unused)
 int VarLenCheck( unsigned int us )
@@ -66,7 +67,7 @@ bool VarLenRead  ( DWORD *p, FILE* a2 )
 }
 
 //pxtnDescriptor::v_w_asfile
-int VarLenWrite( int val, FILE* _p_desc, DWORD p_add)
+int VarLenWrite( int val, FILE* _p_desc, DWORD* p_add)
 {
 	uint8_t  a[ 5 ] = {0};
 	uint8_t  b[ 5 ] = {0};
