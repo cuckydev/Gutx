@@ -19,7 +19,7 @@ int VarLenCheck( unsigned int us )
 
 //pxtnDescriptor::v_r
 // 可変長読み込み（int32_t  までを保証）
-bool VarLenRead  ( DWORD *p, FILE* a2 )
+bool VarLenRead  ( DWORD *p, PixFile* a2 )
 {
 	int          i;
 	uint8_t a[ 5 ] = {0};

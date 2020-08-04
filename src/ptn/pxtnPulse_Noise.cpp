@@ -90,7 +90,7 @@ static int _MakeFlags( const pxNOISEDESIGN_UNIT *pU )
 }
 
 
-static signed int _ReadOscillator( pxNOISEDESIGN_OSCILLATOR *p_osc, FILE* p_add )
+static signed int _ReadOscillator( pxNOISEDESIGN_OSCILLATOR *p_osc, PixFile* p_add )
 {
 	DWORD work;
 	if( !VarLenRead( &work, p_add)          ) return false     ; p_osc->type     = (pxWAVETYPE)work;
@@ -166,7 +166,7 @@ End:
 
 	return b_ret;
 }
-int pxtnPulse_Noise_read( FILE *fp, pxtnPulse_Noise *p_dst, int flags)
+int pxtnPulse_Noise_read( PixFile *fp, pxtnPulse_Noise *p_dst, int flags)
 {
 	int      res       =            0;
 	char     unit_num  =            0;

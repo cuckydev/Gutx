@@ -1,25 +1,24 @@
 #include "File.h"
 
 //pxtnDescriptor::r
-bool ReadFromFile(void *p, int size, int num, FILE* _p_desc)
+int ReadFromFile(void *p, size_t size, int num, PixFile *_p_desc)
 {
-  int i;
+  int i; // [sp+0h] [bp-4h]@5
 
-  if ( _p_desc->_ptr )
+  if ( *&_p_desc->type )
   {
-    if ( fread(p, size, num, (FILE *)_p_desc->_cnt) != num )
+    if ( fread(p, size, num, _p_desc->fp) != num )
       return 0;
   }
   else
   {
     for ( i = 0; i < num; ++i )
     {
-      if ( (signed int)(size + _p_desc->_flag) > _p_desc->_file )
+      if ( (size + _p_desc->bytesRead) > _p_desc->size )
         return 0;
-      memcpy((char *)p + i, &_p_desc->_base[_p_desc->_flag], size);
-      _p_desc->_flag += size;
+      memcpy(p + i, _p_desc->res + _p_desc->bytesRead, size);
+      _p_desc->bytesRead += size;
     }
   }
   return 1;
 }
-

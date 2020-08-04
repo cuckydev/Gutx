@@ -3,4 +3,15 @@
 #include <cstring>
 #include <windows.h>
 
-bool ReadFromFile(void *p, int size, int num, FILE* _p_desc);
+
+struct PixFile
+{
+  char type;
+  FILE *fp;
+  LPVOID res;
+  DWORD bytesRead;
+  DWORD size;
+};
+
+
+bool ReadFromFile(void *p, int size, int num, PixFile* _p_desc);
