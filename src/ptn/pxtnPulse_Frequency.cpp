@@ -95,6 +95,6 @@ float pxtnPulse_Frequency_Get( int32_t key )
 
 	i = (key + 0x6000) * _FREQUENCY_PER_KEY / 0x100;
 	if     ( i <            0 ) i = 0;
-	else if( i >= _TABLE_SIZE ) i = _TABLE_SIZE -1;
+	if     ( i >= _TABLE_SIZE ) i = _TABLE_SIZE -1;
 	return _freq_table[ i ];
 }
