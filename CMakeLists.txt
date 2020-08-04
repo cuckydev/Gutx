@@ -27,6 +27,8 @@ add_executable(Gutx WIN32
 	"src/ptn/pxtnPulse_Frequency.h"
 	"src/ptn/pxtnPulse_Noise.cpp"
 	"src/ptn/pxtnPulse_Noise.h"
+	"src/ptn/pxtnPulse_NoiseBuilder.cpp"
+	"src/ptn/pxtnPulse_NoiseBuilder.h"
 	"src/ptn/pxtnPulse_Oscillator.cpp"
 	"src/ptn/pxtnPulse_Oscillator.h"
 )

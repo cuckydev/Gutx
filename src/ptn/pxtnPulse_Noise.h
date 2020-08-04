@@ -1,4 +1,4 @@
-﻿
+﻿#pragma once
 #ifndef pxtnPulse_Noise_H
 #define pxtnPulse_Noise_H
 #endif
@@ -21,17 +21,6 @@ enum pxWAVETYPE
 	pxWAVETYPE_Random,
 	pxWAVETYPE_Saw2,
 	pxWAVETYPE_Rect2,
-
-	pxWAVETYPE_Tri    ,
-	pxWAVETYPE_Random2,
-	pxWAVETYPE_Rect3  ,
-	pxWAVETYPE_Rect4  ,
-	pxWAVETYPE_Rect8  ,
-	pxWAVETYPE_Rect16 ,
-	pxWAVETYPE_Saw3   ,
-	pxWAVETYPE_Saw4   ,
-	pxWAVETYPE_Saw6   ,
-	pxWAVETYPE_Saw8   ,
 
 	pxWAVETYPE_num,
 };
@@ -69,3 +58,4 @@ pxtnPulse_Noise;
 
 void _FixUnit( pxNOISEDESIGN_OSCILLATOR *p_osc );
 void* pxtnPulse_Noise_Release(pxtnPulse_Noise *pdst);
+pxtnPulse_Noise * pxtnPulse_Noise_Fix(pxtnPulse_Noise *p_dst);

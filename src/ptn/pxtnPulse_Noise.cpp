@@ -38,6 +38,7 @@ pxtnPulse_Noise * pxtnPulse_Noise_Fix(pxtnPulse_Noise *p_dst)
 			_FixUnit( &p_unit->volu );
 		}
 	}
+	return p_dst;
 }
 
 void _FixUnit( pxNOISEDESIGN_OSCILLATOR *p_osc )
