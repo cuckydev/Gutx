@@ -19,6 +19,10 @@ add_executable(Gutx WIN32
 	"src/Main.cpp"
 	"src/Window.cpp"
 	"src/Window.h"
+	"src/ptn/pxtnPulse_Frequency.cpp"
+	"src/ptn/pxtnPulse_Frequency.h"
+	"src/ptn/pxtnPulse_Oscillator.cpp"
+	"src/ptn/pxtnPulse_Oscillator.h"
 )
 
 if(TARGET_WIN)

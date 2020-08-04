@@ -4,6 +4,7 @@
 
 #include "Input.h"
 #include "Window.h"
+#include "ptn/pxtnPulse_Frequency.h"
 
 LPCSTR lpName = "directxsample";
 LPCSTR mutexName = "map_directxsample";
@@ -62,6 +63,8 @@ int CALLBACK WinMain(HINSTANCE hInstance, HINSTANCE hPrevInstance, LPSTR lpCmdLi
 		
 		SetWindowPosPath(gTempPath);
 		SetUnusedPtrTempGuxt(gTempPath);
+
+		pxtnPulse_Frequency_Init();
 		return 1;
 	}
 	else
