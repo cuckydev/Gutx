@@ -1,7 +1,7 @@
 #include "File.h"
 
 //pxtnDescriptor::r
-int ReadFromFile(void *p, size_t size, int num, PixFile *_p_desc)
+int ReadFromFile(void *p, size_t size, int num, PixFile* _p_desc)
 {
   int i; // [sp+0h] [bp-4h]@5
 

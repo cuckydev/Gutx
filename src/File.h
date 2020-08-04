@@ -14,4 +14,4 @@ struct PixFile
 };
 
 
-bool ReadFromFile(void *p, int size, int num, PixFile* _p_desc);
+int ReadFromFile(void *p, size_t size, int num, PixFile* _p_desc);

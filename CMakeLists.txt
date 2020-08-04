@@ -23,6 +23,8 @@ add_executable(Gutx WIN32
 	"src/VarLen.h"
 	"src/Window.cpp"
 	"src/Window.h"
+	"src/ptn/pxtnMem.cpp"
+	"src/ptn/pxtnMem.h"
 	"src/ptn/pxtnPulse_Frequency.cpp"
 	"src/ptn/pxtnPulse_Frequency.h"
 	"src/ptn/pxtnPulse_Noise.cpp"
